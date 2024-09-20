@@ -1,0 +1,38 @@
+             PGM
+             CRTSQLRPGI OBJ(EHEADLIB/SQUEPROMPT) +
+                          SRCFILE(EHEADLIB/QRPGLESRC) SRCMBR(*OBJ) +
+                          OBJTYPE(*MODULE) DBGVIEW(*SOURCE)
+             CRTSQLRPGI OBJ(EHEADLIB/STATPROMPT) +
+                          SRCFILE(EHEADLIB/QRPGLESRC) SRCMBR(*OBJ) +
+                          OBJTYPE(*MODULE) DBGVIEW(*SOURCE)
+             CRTSQLRPGI OBJ(EHEADLIB/CHGPASSWD) +
+                          SRCFILE(EHEADLIB/QRPGLESRC) +
+                          OBJTYPE(*MODULE) DBGVIEW(*SOURCE)
+             CRTSQLRPGI OBJ(EHEADLIB/FORGETPASS) +
+                          SRCFILE(EHEADLIB/QRPGLESRC) SRCMBR(*OBJ) +
+                          OBJTYPE(*MODULE) DBGVIEW(*SOURCE)
+             CRTSQLRPGI OBJ(EHEADLIB/LGCRDNTL) +
+                          SRCFILE(EHEADLIB/QRPGLESRC) SRCMBR(*OBJ) +
+                          OBJTYPE(*MODULE) DBGVIEW(*SOURCE)
+             CRTSQLRPGI OBJ(EHEADLIB/NEWCSTMRRG) +
+                          SRCFILE(EHEADLIB/QRPGLESRC) SRCMBR(*OBJ) +
+                          OBJTYPE(*MODULE) DBGVIEW(*SOURCE)
+             CRTSQLRPGI OBJ(EHEADLIB/NEWVNDRREG) +
+                          SRCFILE(EHEADLIB/QRPGLESRC) SRCMBR(*OBJ) +
+                          OBJTYPE(*MODULE) DBGVIEW(*SOURCE)
+             CRTSQLRPGI OBJ(EHEADLIB/ADMINDSBD) +
+                          SRCFILE(EHEADLIB/QRPGLESRC) SRCMBR(*OBJ) +
+                          OBJTYPE(*MODULE) DBGVIEW(*SOURCE)
+             CRTRPGMOD  MODULE(EHEADLIB/CSTMRDSBD) +
+                          SRCFILE(EHEADLIB/QRPGLESRC) DBGVIEW(*SOURCE)
+             CRTSQLRPGI OBJ(EHEADLIB/VNDRDSBD) +
+                          SRCFILE(EHEADLIB/QRPGLESRC) SRCMBR(*OBJ) +
+                          OBJTYPE(*MODULE) DBGVIEW(*SOURCE)
+             UPDSRVPGM  SRVPGM(EHEADLIB/COMMONSRV) +
+                          MODULE(EHEADLIB/SQUEPROMPT +
+                          EHEADLIB/STATPROMPT EHEADLIB/CHGPASSWD)
+             CRTBNDRPG  PGM(EHEADLIB/INVMGSYSTM) +
+                          SRCFILE(EHEADLIB/QRPGLESRC) +
+                          DFTACTGRP(*NO) +
+                          BNDDIR(EHEADLIB/MAINBNDDIR) DBGVIEW(*SOURCE)
+             ENDPGM

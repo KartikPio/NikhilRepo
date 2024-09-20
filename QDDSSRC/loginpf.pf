@@ -1,0 +1,13 @@
+                                            UNIQUE
+                R LOGINPFR
+                  LOGINID        6A         COLHDG('LOGIN ID')
+                                            TEXT('LOGIN ID')
+                  PASSWORD      10A         COLHDG('PASSWORD')
+                                            TEXT('LOGIN PASSWORD')
+                  SCURITYQUE    35A         COLHDG('SECURITY QUESTION')
+                                            TEXT('LOGIN QUESTION')
+                  SCURITYANS     8A         COLHDG('SECURITY ANSWER')
+                                            TEXT('LOGIN ANSWER')
+                  ROLE          10A         COLHDG('USER ROLE')
+                                            TEXT('LOGIN ROLE')
+                K LOGINID

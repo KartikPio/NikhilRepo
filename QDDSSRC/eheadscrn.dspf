@@ -1,0 +1,534 @@
+     A*%%TS  SD  20240918  081333  NIKHIL      REL-V7R5M0  5770-WDS
+     A*%%EC
+     A                                      DSPSIZ(24 80 *DS3)
+     A                                      INDARA
+     A                                      CF03(03 'Exit')
+     A                                      CF12(12 'Cancel')
+     A                                      CF05(05 'Refresh')
+     A          R LOGINSCRN
+     A*%%TS  SD  20240820  060024  NIKHIL      REL-V7R5M0  5770-WDS
+     A                                      CF07(07 'NewCst')
+     A                                      CF08(08 'NewVndr')
+     A                                      CF04(04 'FgPass')
+     A                                  1 21'Inventory Management and Electric -
+     A                                      Store'
+     A                                      COLOR(WHT)
+     A                                  1 62'Date:'
+     A                                  2 34'Electric Head'
+     A                                      COLOR(WHT)
+     A                                  2 62'Time:'
+     A                                  3  2'__________________________________-
+     A                                      Sign On____________________________-
+     A                                      _________'
+     A                                      COLOR(TRQ)
+     A                                  8 20'LoginId . :'
+     A                                      COLOR(WHT)
+     A                                 10 20'Password. :'
+     A                                      COLOR(WHT)
+     A            LGINID         6A  B  8 32
+     A  25                                  DSPATR(RI)
+     A  25                                  DSPATR(PC)
+     A                                      CHECK(LC)
+     A                                 22  2'F3=Exit'
+     A                                      COLOR(BLU)
+     A                                 22 13'F4=Forget Password'
+     A                                      COLOR(BLU)
+     A                                 22 37'F5=Refresh'
+     A                                      COLOR(BLU)
+     A                                 22 52'F7=New Customer Registration'
+     A                                      COLOR(BLU)
+     A                                 23  2'F8=New Vendor Registration'
+     A                                      COLOR(BLU)
+     A            LGERROR       70A  O 24  2COLOR(WHT)
+     A            LGPASS        10A  B 10 32
+     A  26                                  DSPATR(RI)
+     A  26                                  DSPATR(PC)
+     A                                      CHECK(LC)
+     A                                      DSPATR(ND)
+     A                                  1 68DATE
+     A                                      EDTCDE(Y)
+     A                                  2 68TIME
+     A          R NEWCSTREG
+     A*%%TS  SD  20240808  073735  NIKHIL      REL-V7R5M0  5770-WDS
+     A                                      CF06(06 'Insert')
+     A                                      CF04(04 'PROMPT')
+     A                                      RTNCSRLOC(&RCD &FLD &POS)
+     A                                      OVERLAY
+     A            FLD           10A  H
+     A            RCD           10A  H
+     A            POS            4S 0H
+     A                                  1 21'Inventory Management and Electric -
+     A                                      Store'
+     A                                      COLOR(WHT)
+     A                                  1 63'Date:'
+     A                                  2 34'Electric Head'
+     A                                      COLOR(WHT)
+     A                                  2 63'Time:'
+     A                                 23  2'F5=Refresh'
+     A                                      COLOR(BLU)
+     A            NCERROR       70A  O 24  2COLOR(WHT)
+     A                                  4 28'New Customer Registration'
+     A                                      COLOR(TRQ)
+     A                                  7  2'UserId. . . . .:'
+     A                                      COLOR(WHT)
+     A                                  9  2'Password. . . .:'
+     A                                      COLOR(WHT)
+     A                                 11  2'ConfirmPassword:'
+     A                                      COLOR(WHT)
+     A                                 13  2'Name. . . . . .:'
+     A                                      COLOR(WHT)
+     A                                 15  2'State. . . . . :'
+     A                                      COLOR(WHT)
+     A                                 17  2'Email. . . . . :'
+     A                                      COLOR(WHT)
+     A                                 19  2'Address. . . . :'
+     A                                      COLOR(WHT)
+     A                                  1 69DATE
+     A                                      EDTCDE(Y)
+     A                                  2 69TIME
+     A            CNNAME        20A  B 13 19
+     A  29                                  DSPATR(RI)
+     A  29                                  DSPATR(PC)
+     A            CNGMAIL       30A  B 17 19
+     A  31                                  DSPATR(RI)
+     A  31                                  DSPATR(PC)
+     A            CNADDRESS     50A  B 19 19
+     A  32                                  DSPATR(RI)
+     A  32                                  DSPATR(PC)
+     A                                  7 52'Gender :'
+     A                                      COLOR(WHT)
+     A                                  9 52'City. .:'
+     A                                      COLOR(WHT)
+     A                                 13 52'Country:'
+     A                                      COLOR(WHT)
+     A                                 15 52'Pincode:'
+     A                                      COLOR(WHT)
+     A                                  8  1'(F4=Prompt)'
+     A                                      COLOR(BLU)
+     A            CNCITY        18A  B  9 61
+     A  34                                  DSPATR(RI)
+     A  34                                  DSPATR(PC)
+     A                                 11 52'Mobile.:'
+     A                                      COLOR(WHT)
+     A                                 15 35'(F4=Prompt)'
+     A                                      COLOR(BLU)
+     A                                 23 17'F6=Insert'
+     A                                      COLOR(BLU)
+     A            CNUSRID        6A  O  7 19
+     A                                 23 31'F12=Cancel'
+     A                                      COLOR(BLU)
+     A            CNPASS         8A  B  9 19
+     A  27                                  DSPATR(RI)
+     A  27                                  DSPATR(PC)
+     A                                      DSPATR(ND)
+     A            CNCPASS        8A  B 11 19
+     A  28                                  DSPATR(RI)
+     A  28                                  DSPATR(PC)
+     A                                      DSPATR(ND)
+     A            CNSTATE       15A  B 15 19
+     A  30                                  DSPATR(RI)
+     A  30                                  DSPATR(PC)
+     A            CNCOUNTRY      5A  O 13 61
+     A            CNPINCODE      6Y 0B 15 61
+     A  37                                  DSPATR(RI)
+     A  37                                  DSPATR(PC)
+     A                                      EDTCDE(4)
+     A            CNMOBILE      10Y 0B 11 61
+     A  35                                  DSPATR(RI)
+     A  35                                  DSPATR(PC)
+     A                                      EDTCDE(4)
+     A                                 17 52'SecurityAns:'
+     A                                      COLOR(WHT)
+     A            CNSECURITY     8A  B 17 65
+     A  38                                  DSPATR(RI)
+     A  38                                  DSPATR(PC)
+     A                                 21  2'SecurityQue. . :'
+     A                                      COLOR(WHT)
+     A            SECQUE        35A  B 21 19
+     A  39                                  DSPATR(RI)
+     A  39                                  DSPATR(PC)
+     A                                      DSPATR(PR)
+     A                                 21 55'(F4=Prompt)'
+     A                                      COLOR(BLU)
+     A            CNGENDER       1A  B  7 61
+     A  33                                  DSPATR(RI)
+     A  33                                  DSPATR(PC)
+     A          R FORGETPASS
+     A*%%TS  SD  20240807  051358  NIKHIL      REL-V7R5M0  5770-WDS
+     A                                      RTNCSRLOC(&RCD &FLD &POS)
+     A                                      OVERLAY
+     A            FLD           10A  H
+     A            RCD           10A  H
+     A            POS            4S 0H
+     A                                  1 22'Inventory Management and Electric -
+     A                                      Store'
+     A                                      COLOR(WHT)
+     A                                  1 67'Date:'
+     A                                  2 34'Electric Head'
+     A                                      COLOR(WHT)
+     A                                  2 67'Time:'
+     A                                  3  2'______________________________Forg-
+     A                                      et Password________________________-
+     A                                      _________'
+     A                                      COLOR(TRQ)
+     A                                  8 12'LoginId . . . . . . .:'
+     A                                      COLOR(WHT)
+     A            FGERROR       70A  O 24  2COLOR(WHT)
+     A                                  1  3'User:'
+     A                                  1  9USER
+     A                                 10 12'Security Question. . :'
+     A                                      COLOR(WHT)
+     A                                 13 12'Security Answer. . . :'
+     A                                      COLOR(WHT)
+     A                                 15 12'New Password. . . . .:'
+     A                                      COLOR(WHT)
+     A                                 17 12'Confirm Password. . .:'
+     A                                      COLOR(WHT)
+     A            FGLOGINID      6A  B  8 36
+     A  31                                  DSPATR(RI)
+     A  31                                  DSPATR(PC)
+     A            FGQUE         60A  B 10 36CNTFLD(030)
+     A                                      DSPATR(PR)
+     A                                  1 73DATE
+     A                                      EDTCDE(Y)
+     A                                  2 73TIME
+     A            FGANS          8A  B 13 36
+     A  32                                  DSPATR(RI)
+     A  32                                  DSPATR(PC)
+     A            FGNEWPASS     10A  B 15 36
+     A  33                                  DSPATR(RI)
+     A  33                                  DSPATR(PC)
+     A            FGCNFMPASS    10A  B 17 36
+     A  34                                  DSPATR(RI)
+     A  34                                  DSPATR(PC)
+     A                                 23  3'F5=Refresh'
+     A                                 23 20'F12=Cancel'
+     A                                 10 67'(F4=Prompt)'
+     A                                      COLOR(BLU)
+     A          R LOGINROLE
+     A*%%TS  SD  20240722  065533  NIKHIL      REL-V7R5M0  5770-WDS
+     A                                      WINDOW(5 19 12 35)
+     A                                      RMVWDW
+     A                                      USRRSTDSP
+     A                                  2  4'___________LogIn as_________'
+     A            OPTION         2Y 0B  4 10SNGCHCFLD
+     A                                      CHOICE(1 ' ADMIN')
+     A                                      CHOICE(2 ' VENDOR')
+     A                                      CHOICE(3 ' CUSTOMER')
+     A                                 10  4'F5=Refresh'
+     A                                 10 18'F12=Cancel'
+     A          R NEWVNDRREG
+     A*%%TS  SD  20240809  002133  NIKHIL      REL-V7R5M0  5770-WDS
+     A                                      CF04(04 'prompt')
+     A                                      CF06(06 'Insert')
+     A                                      RTNCSRLOC(&RCD &FLD &POS)
+     A                                      OVERLAY
+     A            FLD           10A  H
+     A            RCD           10A  H
+     A            POS            4S 0H
+     A                                  1 21'Inventory Management and Electric -
+     A                                      Store'
+     A                                      COLOR(WHT)
+     A                                  1 66'Date:'
+     A                                  2 34'Electric Head'
+     A                                      COLOR(WHT)
+     A                                  2 66'Time:'
+     A                                 23  2'F5=Refresh'
+     A                                      COLOR(BLU)
+     A            NCERROR       70A  O 24  2COLOR(WHT)
+     A                                  3 28'New Vender  Registration'
+     A                                      COLOR(TRQ)
+     A                                  4  2'VendorId. . . .:'
+     A                                      COLOR(WHT)
+     A                                  6  2'Password. . . .:'
+     A                                      COLOR(WHT)
+     A                                  8  2'ConfirmPassword:'
+     A                                      COLOR(WHT)
+     A                                 10  2'Name. . . . . .:'
+     A                                      COLOR(WHT)
+     A                                 12  2'State. . . . . :'
+     A                                      COLOR(WHT)
+     A                                 18  2'Email. . . . . :'
+     A                                      COLOR(WHT)
+     A                                 20  2'Address. . . . :'
+     A                                      COLOR(WHT)
+     A                                  1 72DATE
+     A                                      EDTCDE(Y)
+     A                                  2 72TIME
+     A            NVNAME        20A  B 10 19
+     A  28                                  DSPATR(RI)
+     A  28                                  DSPATR(PC)
+     A            NVGMAIL       30A  B 18 19
+     A  32                                  DSPATR(RI)
+     A  32                                  DSPATR(PC)
+     A            NVADDRESS     50A  B 20 19
+     A  33                                  DSPATR(RI)
+     A  33                                  DSPATR(PC)
+     A                                 16  2'Gender. . . . .:'
+     A                                      COLOR(WHT)
+     A                                 14  2'Country. . . . :'
+     A                                      COLOR(WHT)
+     A                                 11 51'Pincode. . :'
+     A                                      COLOR(WHT)
+     A            NVGENDER       1A  B 16 19
+     A  31                                  DSPATR(RI)
+     A  31                                  DSPATR(PC)
+     A                                      DSPATR(PR)
+     A                                 16 21'(F4=Prompt)'
+     A                                      COLOR(BLU)
+     A                                  9 51'Mobile. . .:'
+     A                                      COLOR(WHT)
+     A                                 12 35'(F4=Prompt)'
+     A                                      COLOR(BLU)
+     A                                 23 18'F6=Insert'
+     A                                      COLOR(BLU)
+     A            NVUSRID        6A  O  4 19
+     A                                  5 51'ProductType:'
+     A                                      COLOR(WHT)
+     A            NVPDTYPE      15A  B  5 64
+     A  34                                  DSPATR(RI)
+     A  34                                  DSPATR(PC)
+     A                                  7 51'CompnayName:'
+     A                                      COLOR(WHT)
+     A            NVCOMP        15A  B  7 64
+     A  35                                  DSPATR(RI)
+     A  35                                  DSPATR(PC)
+     A                                 13 51'DOB. . . . :'
+     A                                      COLOR(WHT)
+     A                                 15 51'Age. . . . :'
+     A                                      COLOR(WHT)
+     A                                 17 51'DOR. . . . :'
+     A                                      COLOR(WHT)
+     A            NVAGE          3Y 0B 15 64EDTCDE(4)
+     A  39                                  DSPATR(RI)
+     A  39                                  DSPATR(PC)
+     A            NVSTATE       15A  B 12 19
+     A  29                                  DSPATR(RI)
+     A  29                                  DSPATR(PC)
+     A                                      DSPATR(PR)
+     A                                 19 51'SecurityAns:'
+     A                                      COLOR(WHT)
+     A            NVSECANS       8A  B 19 64
+     A  41                                  DSPATR(RI)
+     A  41                                  DSPATR(PC)
+     A            NVPASS        10A  B  6 19
+     A  26                                  DSPATR(RI)
+     A  26                                  DSPATR(PC)
+     A                                      DSPATR(ND)
+     A            NVCPASS       10A  B  8 19
+     A  27                                  DSPATR(RI)
+     A  27                                  DSPATR(PC)
+     A                                      DSPATR(ND)
+     A            NVMOBILE      10A  B  9 64
+     A  36                                  DSPATR(RI)
+     A  36                                  DSPATR(PC)
+     A            NVPINCODE      6A  B 11 64
+     A  37                                  DSPATR(RI)
+     A  37                                  DSPATR(PC)
+     A                                 23 33'F12=Cancel'
+     A                                      COLOR(BLU)
+     A                                 22  2'SecQuestion. . :'
+     A                                      COLOR(WHT)
+     A            SECQUES       35A  B 22 19
+     A  42                                  DSPATR(RI)
+     A  42                                  DSPATR(PC)
+     A                                      DSPATR(PR)
+     A                                 22 55'(F4=Prompt)'
+     A                                      COLOR(BLU)
+     A            NVDOB     R        B 13 64REFFLD(VNDDTLPFR/DOB EHEADLIB/VNDDT-
+     A                                      LPF)
+     A  38                                  DSPATR(RI)
+     A  38                                  DSPATR(PC)
+     A            NVDOR     R        B 17 64REFFLD(VNDDTLPFR/DOR EHEADLIB/VNDDT-
+     A                                      LPF)
+     A  40                                  DSPATR(RI)
+     A  40                                  DSPATR(PC)
+     A                                      DSPATR(PR)
+     A            NVCOUNTRY      5   O 14 19
+     A          R ADMINDSBRD
+     A*%%TS  SD  20240913  082414  NIKHIL      REL-V7R5M0  5770-WDS
+     A                                      CF07(07 'ChgPass')
+     A                                      CF10(10 'Logout')
+     A                                  1 21'Inventory Management and Electric -
+     A                                      Store'
+     A                                      COLOR(WHT)
+     A                                  1 66'Date:'
+     A                                  2 34'Electric Head'
+     A                                      COLOR(WHT)
+     A                                  2 66'Time:'
+     A                                 22  2'F5=Refresh'
+     A                                      COLOR(BLU)
+     A            ADBERROR      70A  O 24  2COLOR(WHT)
+     A                                  3 33'Admin Dashboard'
+     A                                      COLOR(TRQ)
+     A                                  1 72DATE
+     A                                      EDTCDE(Y)
+     A                                  2 72TIME
+     A                                 22 17'F7=Change Password'
+     A                                      COLOR(BLU)
+     A                                  1  2'User:'
+     A                                  7  2'1.View'
+     A                                  7  9'Inventory'
+     A                                  8  2'2.Vendor'
+     A                                  8 11'Management'
+     A                                  9  2'3.View'
+     A                                  9  9'Customer'
+     A                                  9 18'Profile'
+     A                                 10  2'4.Order'
+     A                                 10 10'Management'
+     A                                 13  2'7.View'
+     A                                 13  9'Complaint'
+     A                                 13 19'Detail'
+     A                                 14  2'8.View'
+     A                                 14  9'Feedback'
+     A                                 14 18'and'
+     A                                 14 22'Rating'
+     A                                 16  2'Enter'
+     A                                      COLOR(WHT)
+     A                                 16  8'Choice:'
+     A                                      COLOR(WHT)
+     A            AOPTION        1Y 0B 16 16EDTCDE(4)
+     A  99                                  DSPATR(RI)
+     A  99                                  DSPATR(PC)
+     A                                 22 40'F10=LogOut'
+     A                                      COLOR(BLU)
+     A            USER           8A  O  1  8
+     A                                 11  2'5.Generate Report On Vender Perfor-
+     A                                      mance'
+     A                                 12  2'6.View Report On Sale'
+     A          R VNDRDSBRD
+     A*%%TS  SD  20240918  081333  NIKHIL      REL-V7R5M0  5770-WDS
+     A                                      CF07(07 'ChgPass')
+     A                                      CF10(10 'Logout')
+     A                                  1 21'Inventory Management and Electric -
+     A                                      Store'
+     A                                      COLOR(WHT)
+     A                                  1 66'Date:'
+     A                                  2 34'Electric Head'
+     A                                      COLOR(WHT)
+     A                                  2 66'Time:'
+     A                                 22  2'F5=Refresh'
+     A                                      COLOR(BLU)
+     A            ADBERROR      70A  O 24  2COLOR(WHT)
+     A                                  3 18'_______________Vendor Dashboard___-
+     A                                      ___________'
+     A                                      COLOR(TRQ)
+     A                                  1 72DATE
+     A                                      EDTCDE(Y)
+     A                                  2 72TIME
+     A                                 22 17'F7=Change Password'
+     A                                      COLOR(BLU)
+     A                                  1  2'User:'
+     A                                 22 40'F10=LogOut'
+     A                                      COLOR(BLU)
+     A                                  7  2'Type Choice, Press Enter'
+     A                                      COLOR(BLU)
+     A                                  9  2'1.Product Management'
+     A                                 10  2'2.Order Management'
+     A                                 11  2'3.Inventory Management'
+     A                                 12  2'4.Update Profile'
+     A                                 13  2'5.View Profile'
+     A                                 15  2'Enter Choice:'
+     A                                      COLOR(WHT)
+     A            VOPTION        1S 0I 15 16
+     A  31                                  DSPATR(RI)
+     A  31                                  DSPATR(PC)
+     A            USERNAME       8A  O  1  8
+     A          R CSTMRDSBRD
+     A*%%TS  SD  20240731  020732  NIKHIL      REL-V7R5M0  5770-WDS
+     A                                      CF07(07 'ChgPass')
+     A                                      CF10(10 'Logout')
+     A                                  1 21'Inventory Management and Electric -
+     A                                      Store'
+     A                                      COLOR(WHT)
+     A                                  1 66'Date:'
+     A                                  2 34'Electric Head'
+     A                                      COLOR(WHT)
+     A                                  2 66'Time:'
+     A                                 22  2'F3=Exit'
+     A                                      COLOR(BLU)
+     A                                 22 14'F5=Refresh'
+     A                                      COLOR(BLU)
+     A            ADBERROR      70A  O 24  2COLOR(WHT)
+     A                                  3 32'Customer Dashboard'
+     A                                      COLOR(TRQ)
+     A                                  1 72DATE
+     A                                      EDTCDE(Y)
+     A                                  2 72TIME
+     A                                 22 29'F7=Change Password'
+     A                                      COLOR(BLU)
+     A                                  1  2'User:'
+     A                                  1  8USER
+     A                                 22 53'F10=LogOut'
+     A                                      COLOR(BLU)
+     A                                  7  2'Type Choice, Press Enter'
+     A                                  9  2'1.Browsing and Booking'
+     A                                 10  2'2.Cart Management'
+     A                                 11  2'3.Complaints Management'
+     A                                 12  2'4.Feedback and Rating'
+     A                                 13  2'5.Update Profile'
+     A                                 14  2'6.View Profile'
+     A                                 16  2'Enter Choice:'
+     A            COPTION        1S 0I 16 16
+     A  31                                  DSPATR(RI)
+     A  31                                  DSPATR(PC)
+     A          R GENDEROPT
+     A*%%TS  SD  20240828  054320  NIKHIL      REL-V7R5M0  5770-WDS
+     A                                      CF04(04 'Exit')
+     A                                      WINDOW(6 50 12 25)
+     A                                      RMVWDW
+     A                                  2 11'Gender'
+     A            GENDER         2Y 0B  4  5SNGCHCFLD
+     A                                      CHOICE(1 ' MALE')
+     A                                      CHOICE(2 ' FEMALE')
+     A                                      CHOICE(3 ' OTHER')
+     A                                 11  4'F12=Cancel'
+     A          R STATESFL                  SFL
+     A*%%TS  SD  20240902  052423  NIKHIL      REL-V7R5M0  5770-WDS
+     A            SOPT           1S 0B  6  5VALUES(1)
+     A            SSTATE        15A  O  6 14
+     A          R SSFLCTL                   SFLCTL(STATESFL)
+     A*%%TS  SD  20240902  052423  NIKHIL      REL-V7R5M0  5770-WDS
+     A                                      OVERLAY
+     A  42                                  SFLDSP
+     A  43                                  SFLDSPCTL
+     A  41                                  SFLCLR
+     A  40                                  SFLEND(*MORE)
+     A                                      SFLSIZ(9999)
+     A                                      SFLPAG(0005)
+     A                                      WINDOW(STATEFOTER)
+     A                                  2  4'Option 1 to Select'
+     A                                      COLOR(WHT)
+     A                                  4  4'Opt'
+     A                                  4 14'State'
+     A          R SECQUES1                  SFL
+     A*%%TS  SD  20240809  072056  NIKHIL      REL-V7R5M0  5770-WDS
+     A            SOPT           1S 0B  8  4COMP(EQ 1)
+     A            SQUES         35A  B  8 10
+     A          R SFLCTL1                   SFLCTL(SECQUES1)
+     A*%%TS  SD  20240807  025508  NIKHIL      REL-V7R5M0  5770-WDS
+     A                                      OVERLAY
+     A  32                                  SFLDSP
+     A  33                                  SFLDSPCTL
+     A  31                                  SFLCLR
+     A  30                                  SFLEND(*MORE)
+     A                                      SFLSIZ(9999)
+     A                                      SFLPAG(0005)
+     A                                      WINDOW(SFOTER)
+     A                                  2  4'Select your Security question'
+     A                                  4  4'Option 1 to Selcet'
+     A                                  6  4'Opt'
+     A                                  6 10'Security Question'
+     A          R SFOTER
+     A*%%TS  SD  20240807  025508  NIKHIL      REL-V7R5M0  5770-WDS
+     A                                      OVERLAY
+     A                                      WINDOW(3 20 17 50)
+     A                                 16  7'F12=Cancel'
+     A                                      COLOR(BLU)
+     A          R STATEFOTER
+     A*%%TS  SD  20240807  025508  NIKHIL      REL-V7R5M0  5770-WDS
+     A                                      OVERLAY
+     A                                      WINDOW(3 30 16 35)
+     A                                      RMVWDW
+     A                                 15  6'F12=Cancel'
+     A                                      COLOR(BLU)

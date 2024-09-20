@@ -1,0 +1,1269 @@
+     A*%%TS  SD  20240920  054741  NIKHIL      REL-V7R5M0  5770-WDS
+     A*%%EC
+     A                                      DSPSIZ(24 80 *DS3)
+     A                                      INDARA
+     A                                      CF12(12 'cancel')
+     A                                      CF05(05 'Refresh')
+     A          R CGPASSSCRN
+     A*%%TS  SD  20240910  015759  NIKHIL      REL-V7R5M0  5770-WDS
+     A                                  1 21'Inventory Management and Electric -
+     A                                      Store'
+     A                                      COLOR(WHT)
+     A                                  2 34'Electric Head'
+     A                                      COLOR(WHT)
+     A                                  1 66'Date:'
+     A                                  2 66'Time:'
+     A                                  1 72DATE
+     A                                      EDTCDE(Y)
+     A                                  2 72TIME
+     A                                  1  2'User:'
+     A                                  3 12'______________________ChangePasswo-
+     A                                      rd__________________'
+     A                                      COLOR(TRQ)
+     A                                 22  2'F12=Cancel'
+     A                                      COLOR(BLU)
+     A                                  8 13'LogInId. . . . :'
+     A                                 10 13'CurrentPassword:'
+     A                                 12 13'NewPassword. . :'
+     A                                 14 13'ConfirmPassword:'
+     A            CLGID          6A  B  8 30
+     A  31                                  DSPATR(RI)
+     A  31                                  DSPATR(PC)
+     A                                      CHECK(LC)
+     A            CCPASS        10A  B 10 30
+     A  32                                  DSPATR(RI)
+     A  32                                  DSPATR(PC)
+     A                                      CHECK(LC)
+     A            CNPASSWRD     10A  B 12 30
+     A  33                                  DSPATR(RI)
+     A  33                                  DSPATR(PC)
+     A            CCNFMPASS     10A  B 14 30
+     A  34                                  DSPATR(RI)
+     A  34                                  DSPATR(PC)
+     A            CERROR        70A  O 24  2
+     A          R VIEWINVNT                 SFL
+     A*%%TS  SD  20240917  052407  NIKHIL      REL-V7R5M0  5770-WDS
+     A  81                                  SFLNXTCHG
+     A            SOPTION        1Y 0B 12  3EDTCDE(4)
+     A  41                                  DSPATR(RI)
+     A            SPRODUCTID     6A  H
+     A            SUNITPRICE     6S 0H
+     A            SCATEGORY     30A  H
+     A            SLSTUPDATE      L  H
+     A            SPDADDDATER        O 12 68REFFLD(PDDTLPFR/PDADDDATE EHEADLIB/-
+     A                                      PDDTLPF)
+     A            SPDBRAND  R        O 12 53REFFLD(PDDTLPFR/PDBRAND EHEADLIB/PD-
+     A                                      DTLPF)
+     A            SPDSTOCK  R        O 12 43REFFLD(PDDTLPFR/PDSTOCK EHEADLIB/PD-
+     A                                      DTLPF)
+     A            SPDNAME   R        O 12 24REFFLD(PDDTLPFR/PDNAME EHEADLIB/PDD-
+     A                                      TLPF)
+     A            SPDVNDRID R        O 12 11REFFLD(PDDTLPFR/PDVNDRID EHEADLIB/P-
+     A                                      DDTLPF)
+     A          R VISFLCTL                  SFLCTL(VIEWINVNT)
+     A*%%TS  SD  20240917  063107  NIKHIL      REL-V7R5M0  5770-WDS
+     A                                      RTNCSRLOC(&RCD &FLD &POS)
+     A                                      OVERLAY
+     A  33                                  SFLDSP
+     A  34                                  SFLDSPCTL
+     A  32                                  SFLCLR
+     A  31                                  SFLEND(*MORE)
+     A                                      SFLSIZ(9999)
+     A                                      SFLPAG(0005)
+     A            FLD           10A  H
+     A            RCD           10A  H
+     A            POS            4S 0H
+     A                                  1 22'Inventory Management and Electric -
+     A                                      Store'
+     A                                      COLOR(WHT)
+     A                                  2 33'Electric Head'
+     A                                      COLOR(WHT)
+     A                                  1 65'Date:'
+     A                                      COLOR(WHT)
+     A                                  2 65'Time:'
+     A                                      COLOR(WHT)
+     A                                  1 71DATE
+     A                                      EDTCDE(Y)
+     A                                      COLOR(WHT)
+     A                                  2 71TIME
+     A                                      COLOR(WHT)
+     A                                  1  2'User:'
+     A                                      COLOR(WHT)
+     A                                  3 17'_________________View Inventory___-
+     A                                      ___________'
+     A                                      COLOR(TRQ)
+     A                                  7  2'Type option, Press Enter.'
+     A                                      COLOR(BLU)
+     A                                  8  3'5=Display'
+     A                                      COLOR(BLU)
+     A                                 10  2'Opt'
+     A                                      COLOR(BLU)
+     A                                 10 11'VenderId'
+     A                                      COLOR(BLU)
+     A                                 10 25'ProductName'
+     A                                      COLOR(BLU)
+     A                                 10 42'Stock'
+     A                                      COLOR(BLU)
+     A                                 10 54'Brand'
+     A                                      COLOR(BLU)
+     A                                 10 68'InsertDate'
+     A                                      COLOR(BLU)
+     A            USER           8A  O  1  8COLOR(WHT)
+     A                                  8 41'Position to. . '
+     A            POSITIONTO    15A  B  8 57
+     A          R VINVENTORY
+     A*%%TS  SD  20240822  054211  NIKHIL      REL-V7R5M0  5770-WDS
+     A                                  1 21'Inventory Management and Electric -
+     A                                      Store'
+     A                                      COLOR(WHT)
+     A                                  2 34'Electric Head'
+     A                                      COLOR(WHT)
+     A                                  1 66'Date:'
+     A                                  2 66'Time:'
+     A                                  1 72DATE
+     A                                      EDTCDE(Y)
+     A                                      COLOR(WHT)
+     A                                  2 72TIME
+     A                                      COLOR(WHT)
+     A                                  1  2'User:'
+     A                                  3 12'_____________________View Product_-
+     A                                      ____________________'
+     A                                      COLOR(TRQ)
+     A                                 22  2'F12=Cancel'
+     A                                      COLOR(BLU)
+     A            CERROR        70A  O 24  2
+     A                                  7  2'VendorId. . . :'
+     A                                  9  2'ProductId. . .:'
+     A                                 11  2'Product. . . .:'
+     A                                 13  2'Brand. . . . .:'
+     A                                 15  2'UnitPrice. . .:'
+     A                                 17  2'Category. . . :'
+     A                                 19  2'Stock. . . . .:'
+     A                                  7 48'InsertDate. . :'
+     A                                  9 48'LastUpdateDate:'
+     A            VPRODUCTIDR        O  9 18REFFLD(PDDTLPFR/PRODUCTID EHEADLIB/-
+     A                                      PDDTLPF)
+     A            VPDVNDRID R        O  7 18REFFLD(PDDTLPFR/PDVNDRID EHEADLIB/P-
+     A                                      DDTLPF)
+     A            VPDNAME   R        O 11 18REFFLD(PDDTLPFR/PDNAME EHEADLIB/PDD-
+     A                                      TLPF)
+     A            VPDBRAND  R        O 13 18REFFLD(PDDTLPFR/PDBRAND EHEADLIB/PD-
+     A                                      DTLPF)
+     A            VPDUNITPR R        O 15 18REFFLD(PDDTLPFR/PDUNITPR EHEADLIB/P-
+     A                                      DDTLPF)
+     A            VPDCATGRY R        O 17 18REFFLD(PDDTLPFR/PDCATGRY EHEADLIB/P-
+     A                                      DDTLPF)
+     A            VPDSTOCK  R        O 19 18REFFLD(PDDTLPFR/PDSTOCK EHEADLIB/PD-
+     A                                      DTLPF)
+     A            VPDLSTUPDTR        O  9 64REFFLD(PDDTLPFR/PDLSTUPDT EHEADLIB/-
+     A                                      PDDTLPF)
+     A            VPDADDDATER        O  7 64REFFLD(PDDTLPFR/PDADDDATE EHEADLIB/-
+     A                                      PDDTLPF)
+     A            USER           8A  O  1  8COLOR(WHT)
+     A          R VIFOOTER
+     A*%%TS  SD  20240920  054741  NIKHIL      REL-V7R5M0  5770-WDS
+     A                                 22  2'F5=Refresh'
+     A                                      COLOR(BLU)
+     A                                 22 17'F12=Cancel'
+     A                                      COLOR(BLU)
+     A            VIERROR       70A  O 24  2COLOR(WHT)
+     A          R VNDRMNGMNT                SFL
+     A*%%TS  SD  20240919  005518  NIKHIL      REL-V7R5M0  5770-WDS
+     A  82                                  SFLNXTCHG
+     A            SOPTION        1Y 0B 13  3EDTCDE(4)
+     A  42                                  DSPATR(RI)
+     A  42                                  DSPATR(PC)
+     A            SVNDID    R        O 13 11REFFLD(VNDDTLPFR/VNDID EHEADLIB/VND-
+     A                                      DTLPF)
+     A            SVNDNAME  R        O 13 25REFFLD(VNDDTLPFR/VNDNAME EHEADLIB/V-
+     A                                      NDDTLPF)
+     A            SVNDGENDERR        O 13 40REFFLD(VNDDTLPFR/VNDGENDER EHEADLIB-
+     A                                      /VNDDTLPF)
+     A            SVNDSTATE R        O 13 50REFFLD(VNDDTLPFR/VNDSTATE EHEADLIB/-
+     A                                      VNDDTLPF)
+     A            SVNDMOBILER        O 13 67REFFLD(VNDDTLPFR/VNDMOBILE EHEADLIB-
+     A                                      /VNDDTLPF)
+     A          R VNDMSFLCTL                SFLCTL(VNDRMNGMNT)
+     A*%%TS  SD  20240917  063107  NIKHIL      REL-V7R5M0  5770-WDS
+     A                                      RTNCSRLOC(&RCD &FLD &POS)
+     A  58                                  OVERLAY
+     A  37                                  SFLDSP
+     A  38                                  SFLDSPCTL
+     A  36                                  SFLCLR
+     A  35                                  SFLEND(*MORE)
+     A                                      SFLSIZ(9999)
+     A                                      SFLPAG(0005)
+     A            FLD           10A  H
+     A            RCD           10A  H
+     A            POS            4S 0H
+     A                                  1  3'User:'
+     A                                  1 21'Inventory Management and Electric -
+     A                                      Store'
+     A                                  2 34'Electric Heads'
+     A                                  1 64'Date:'
+     A                                  2 64'Time:'
+     A                                  1 70DATE
+     A                                      EDTCDE(Y)
+     A                                  2 70TIME
+     A                                  3 19'_____________Vendor Management____-
+     A                                      _________'
+     A                                      COLOR(TRQ)
+     A                                  7  3'Type Option, Press enter.'
+     A                                      COLOR(BLU)
+     A                                  8  3'2=Update'
+     A                                      COLOR(BLU)
+     A                                  8 15'4=Delete'
+     A                                      COLOR(BLU)
+     A                                  8 27'5=Display'
+     A                                      COLOR(BLU)
+     A                                 11  3'Opt'
+     A                                      COLOR(BLU)
+     A                                 11 11'VenderId'
+     A                                      COLOR(BLU)
+     A                                 11 25'Name'
+     A                                      COLOR(BLU)
+     A                                 11 39'Gender'
+     A                                      COLOR(BLU)
+     A                                 11 50'State'
+     A                                      COLOR(BLU)
+     A                                 11 67'Mobile'
+     A                                      COLOR(BLU)
+     A                                  8 43'Position to....'
+     A                                      COLOR(BLU)
+     A            VMPOSITION    15A  B  8 59
+     A          R VMPROFILE
+     A*%%TS  SD  20240828  063351  NIKHIL      REL-V7R5M0  5770-WDS
+     A                                  1 21'Inventory Management and Electric -
+     A                                      Store'
+     A                                      COLOR(WHT)
+     A                                  2 34'Electric Head'
+     A                                      COLOR(WHT)
+     A                                  1 66'Date:'
+     A                                  2 66'Time:'
+     A                                  1 72DATE
+     A                                      EDTCDE(Y)
+     A                                      COLOR(WHT)
+     A                                  2 72TIME
+     A                                      COLOR(WHT)
+     A                                  1  2'User:'
+     A                                  3 12'________________View Vendor Profil-
+     A                                      e____________________'
+     A                                      COLOR(TRQ)
+     A                                 22  2'F12=Cancel'
+     A                                      COLOR(BLU)
+     A            CERROR        70A  O 24  2
+     A            USER           8A  O  1  8COLOR(WHT)
+     A                                  7  3'VendorId:'
+     A                                  9  3'Name. . :'
+     A                                 11  3'Mobile. :'
+     A                                 13  3'Gmail. .:'
+     A                                 15  3'State. .:'
+     A                                 17  3'Address.:'
+     A                                  7 46'Gender :'
+     A                                  9 46'Age. . :'
+     A                                 11 46'DOR. . :'
+     A                                 13 46'DOB. . :'
+     A                                 15 46'Pincode:'
+     A            VMVNDID   R        O  7 13REFFLD(VNDDTLPFR/VNDID EHEADLIB/VND-
+     A                                      DTLPF)
+     A            VMVNDNAME R        O  9 13REFFLD(VNDDTLPFR/VNDNAME EHEADLIB/V-
+     A                                      NDDTLPF)
+     A            VMVNDSTATER        O 15 13REFFLD(VNDDTLPFR/VNDSTATE EHEADLIB/-
+     A                                      VNDDTLPF)
+     A            VMVNDEMAILR        O 13 13REFFLD(VNDDTLPFR/VNDEMAIL EHEADLIB/-
+     A                                      VNDDTLPF)
+     A            VVNDMOBILER        O 11 13REFFLD(VNDDTLPFR/VNDMOBILE EHEADLIB-
+     A                                      /VNDDTLPF)
+     A            VVNDADDRESR        O 17 13REFFLD(VNDDTLPFR/VNDADDRESS EHEADLI-
+     A                                      B/VNDDTLPF)
+     A            VVNDGENDERR        O  7 55REFFLD(VNDDTLPFR/VNDGENDER EHEADLIB-
+     A                                      /VNDDTLPF)
+     A            VMAGE     R        O  9 55REFFLD(VNDDTLPFR/AGE EHEADLIB/VNDDT-
+     A                                      LPF)
+     A            VMDOB     R        O 13 55REFFLD(VNDDTLPFR/DOB EHEADLIB/VNDDT-
+     A                                      LPF)
+     A            VVNDPINCODR        O 15 55REFFLD(VNDDTLPFR/VNDPINCODE EHEADLI-
+     A                                      B/VNDDTLPF)
+     A            VMDOR     R        O 11 55REFFLD(VNDDTLPFR/DOR EHEADLIB/VNDDT-
+     A                                      LPF)
+     A          R VMUPDATE
+     A*%%TS  SD  20240903  004729  NIKHIL      REL-V7R5M0  5770-WDS
+     A                                      CF04(04 'prompt')
+     A                                      CF02(02 'Update')
+     A                                      RTNCSRLOC(&RCD &FLD &POS)
+     A                                      OVERLAY
+     A            FLD           10A  H
+     A            RCD           10A  H
+     A            POS            4S 0H
+     A                                  1 21'Inventory Management and Electric -
+     A                                      Store'
+     A                                      COLOR(WHT)
+     A                                  2 34'Electric Head'
+     A                                      COLOR(WHT)
+     A                                  1 66'Date:'
+     A                                  2 66'Time:'
+     A                                  1 72DATE
+     A                                      EDTCDE(Y)
+     A                                      COLOR(WHT)
+     A                                  2 72TIME
+     A                                      COLOR(WHT)
+     A                                  1  2'User:'
+     A                                  3 12'________________Update Vendor Prof-
+     A                                      ile__________________'
+     A                                      COLOR(TRQ)
+     A                                 22 17'F12=Cancel'
+     A                                      COLOR(BLU)
+     A            UERROR        70A  O 24  2
+     A            USER           8A  O  1  8COLOR(WHT)
+     A                                  7  2'VendorId:'
+     A                                  9  2'Name. . :'
+     A                                 11  2'Mobile. :'
+     A                                 13  2'Gmail. .:'
+     A                                 15  2'State. .:'
+     A                                 17  2'Address.:'
+     A                                  7 46'Gender :'
+     A                                  9 46'Age. . :'
+     A                                 11 46'DOR. . :'
+     A                                 13 46'DOB. . :'
+     A                                 15 46'Pincode:'
+     A            UVNDNAME  R        B  9 12REFFLD(VNDDTLPFR/VNDNAME EHEADLIB/V-
+     A                                      NDDTLPF)
+     A  65                                  DSPATR(RI)
+     A  65                                  DSPATR(PC)
+     A            UVNDMOBILER        B 11 12REFFLD(VNDDTLPFR/VNDMOBILE EHEADLIB-
+     A                                      /VNDDTLPF)
+     A  66                                  DSPATR(RI)
+     A  66                                  DSPATR(PC)
+     A            UVNDEMAIL R        B 13 12REFFLD(VNDDTLPFR/VNDEMAIL EHEADLIB/-
+     A                                      VNDDTLPF)
+     A  67                                  DSPATR(RI)
+     A  67                                  DSPATR(PC)
+     A            UVNDSTATE R        B 15 12REFFLD(VNDDTLPFR/VNDSTATE EHEADLIB/-
+     A                                      VNDDTLPF)
+     A  68                                  DSPATR(RI)
+     A  68                                  DSPATR(PC)
+     A            UVNDADDRESR        B 17 12REFFLD(VNDDTLPFR/VNDADDRESS EHEADLI-
+     A                                      B/VNDDTLPF)
+     A  69                                  DSPATR(RI)
+     A  69                                  DSPATR(PC)
+     A            UDOR      R        B 11 55REFFLD(VNDDTLPFR/DOR EHEADLIB/VNDDT-
+     A                                      LPF)
+     A  71                                  DSPATR(RI)
+     A  71                                  DSPATR(PC)
+     A                                      DSPATR(PR)
+     A            UDOB      R        B 13 55REFFLD(VNDDTLPFR/DOB EHEADLIB/VNDDT-
+     A                                      LPF)
+     A  72                                  DSPATR(RI)
+     A  72                                  DSPATR(PC)
+     A            UVNDPINCOER        B 15 55REFFLD(VNDDTLPFR/VNDPINCODE EHEADLI-
+     A                                      B/VNDDTLPF)
+     A  73                                  DSPATR(RI)
+     A  73                                  DSPATR(PC)
+     A            VNDGENDER R        B  7 55REFFLD(VNDDTLPFR/VNDGENDER EHEADLIB-
+     A                                      /VNDDTLPF)
+     A  70                                  DSPATR(RI)
+     A  70                                  DSPATR(PC)
+     A            UVNDID    R        O  7 12REFFLD(VNDDTLPFR/VNDID EHEADLIB/VND-
+     A                                      DTLPF)
+     A            UAGE      R        O  9 55REFFLD(VNDDTLPFR/AGE EHEADLIB/VNDDT-
+     A                                      LPF)
+     A  74                                  DSPATR(RI)
+     A  74                                  DSPATR(PC)
+     A                                 15 28'(F4=Prompt)'
+     A                                      COLOR(BLU)
+     A                                  7 57'(F4=Prompt)'
+     A                                      COLOR(BLU)
+     A                                 22  2'F2=Update'
+     A                                      COLOR(BLU)
+     A          R GENDEROPT1
+     A*%%TS  SD  20240828  053040  NIKHIL      REL-V7R5M0  5770-WDS
+     A                                      CF04(04 'EXIT')
+     A                                      WINDOW(6 50 12 25)
+     A                                      RMVWDW
+     A                                  2 11'GENDER'
+     A            GENDER         2Y 0B  4  5SNGCHCFLD
+     A                                      CHOICE(1 ' MALE')
+     A                                      CHOICE(2 ' FEMALE')
+     A                                      CHOICE(3 ' OTHER')
+     A                                 11  4'F12=CANCEL'
+     A          R DVMPROFILE
+     A*%%TS  SD  20240828  081359  NIKHIL      REL-V7R5M0  5770-WDS
+     A                                  1 21'Inventory Management and Electric -
+     A                                      Store'
+     A                                      COLOR(WHT)
+     A                                  2 34'Electric Head'
+     A                                      COLOR(WHT)
+     A                                  1 65'Date:'
+     A                                  2 65'Time:'
+     A                                  1 71DATE
+     A                                      EDTCDE(Y)
+     A                                      COLOR(WHT)
+     A                                  2 71TIME
+     A                                      COLOR(WHT)
+     A                                  1  2'User:'
+     A                                  3 12'________________Delete Vendor Prof-
+     A                                      ile__________________'
+     A                                      COLOR(TRQ)
+     A                                 22  2'F12=Cancel'
+     A                                      COLOR(BLU)
+     A            CERROR        70A  O 24  2
+     A            USER           8A  O  1  8COLOR(WHT)
+     A                                  7  2'VendorId:'
+     A                                  9  2'Name. . :'
+     A                                 11  2'Mobile. :'
+     A                                 13  2'Gmail. .:'
+     A                                 15  2'State. .:'
+     A                                 17  2'Address.:'
+     A                                  7 46'Gender :'
+     A                                  9 46'Age. . :'
+     A                                 11 46'DOR. . :'
+     A                                 13 46'DOB. . :'
+     A                                 15 46'Pincode:'
+     A            VMVNDID   R        O  7 13REFFLD(VNDDTLPFR/VNDID EHEADLIB/VND-
+     A                                      DTLPF)
+     A            VMVNDNAME R        O  9 13REFFLD(VNDDTLPFR/VNDNAME EHEADLIB/V-
+     A                                      NDDTLPF)
+     A            VMVNDSTATER        O 15 13REFFLD(VNDDTLPFR/VNDSTATE EHEADLIB/-
+     A                                      VNDDTLPF)
+     A            VMVNDEMAILR        O 13 13REFFLD(VNDDTLPFR/VNDEMAIL EHEADLIB/-
+     A                                      VNDDTLPF)
+     A            VVNDMOBILER        O 11 13REFFLD(VNDDTLPFR/VNDMOBILE EHEADLIB-
+     A                                      /VNDDTLPF)
+     A            VVNDADDRESR        O 17 13REFFLD(VNDDTLPFR/VNDADDRESS EHEADLI-
+     A                                      B/VNDDTLPF)
+     A            VVNDGENDERR        O  7 55REFFLD(VNDDTLPFR/VNDGENDER EHEADLIB-
+     A                                      /VNDDTLPF)
+     A            VMAGE     R        O  9 55REFFLD(VNDDTLPFR/AGE EHEADLIB/VNDDT-
+     A                                      LPF)
+     A            VMDOB     R        O 13 55REFFLD(VNDDTLPFR/DOB EHEADLIB/VNDDT-
+     A                                      LPF)
+     A            VVNDPINCODR        O 15 55REFFLD(VNDDTLPFR/VNDPINCODE EHEADLI-
+     A                                      B/VNDDTLPF)
+     A            VMDOR     R        O 11 55REFFLD(VNDDTLPFR/DOR EHEADLIB/VNDDT-
+     A                                      LPF)
+     A          R VWCSTMRPR                 SFL
+     A*%%TS  SD  20240919  005518  NIKHIL      REL-V7R5M0  5770-WDS
+     A  83                                  SFLNXTCHG
+     A            SOPTION        1Y 0B 13  2EDTCDE(4)
+     A  51                                  DSPATR(RI)
+     A  51                                  DSPATR(PC)
+     A            VCCSTID   R        O 13 10REFFLD(CSTDTLPFR/CSTID EHEADLIB/CST-
+     A                                      DTLPF)
+     A            VCCSTNAME R        O 13 22REFFLD(CSTDTLPFR/CSTNAME EHEADLIB/C-
+     A                                      STDTLPF)
+     A            VCSTGENDERR        O 13 45REFFLD(CSTDTLPFR/CSTGENDER EHEADLIB-
+     A                                      /CSTDTLPF)
+     A            VCSTSTATE R        O 13 53REFFLD(CSTDTLPFR/CSTSTATE EHEADLIB/-
+     A                                      CSTDTLPF)
+     A            VCSTMOBILER        O 14  1REFFLD(CSTDTLPFR/CSTMOBILE EHEADLIB-
+     A                                      /CSTDTLPF)
+     A          R CSTMRCTL                  SFLCTL(VWCSTMRPR)
+     A*%%TS  SD  20240917  063107  NIKHIL      REL-V7R5M0  5770-WDS
+     A                                      RTNCSRLOC(&RCD &FLD &POS)
+     A  58                                  OVERLAY
+     A  49                                  SFLDSP
+     A  50                                  SFLDSPCTL
+     A  48                                  SFLCLR
+     A  47                                  SFLEND(*MORE)
+     A                                      SFLSIZ(9999)
+     A                                      SFLPAG(0005)
+     A            FLD           10A  H
+     A            RCD           10A  H
+     A            POS            4S 0H
+     A                                  1 21'Inventory Management and Electric -
+     A                                      Store'
+     A                                      COLOR(WHT)
+     A                                  2 34'Electric Head'
+     A                                      COLOR(WHT)
+     A                                  1  3'User:'
+     A                                  1 65'Date:'
+     A                                  2 65'Time:'
+     A                                  1 71DATE
+     A                                      EDTCDE(Y)
+     A                                  2 71TIME
+     A            FLD002         8A  O  1  9
+     A                                  3 16'________________View Customer Prof-
+     A                                      ile_____________'
+     A                                      COLOR(TRQ)
+     A                                  7  2'Type Option, Press Enter.'
+     A                                      COLOR(BLU)
+     A                                  8  2'5=Display'
+     A                                      COLOR(BLU)
+     A                                  7 38'Positon to(CstId/Name)..'
+     A                                      COLOR(BLU)
+     A                                 11  2'Opt'
+     A                                      COLOR(WHT)
+     A                                 11  9'CustomerId'
+     A                                      COLOR(WHT)
+     A                                 11 23'Name'
+     A                                      COLOR(WHT)
+     A                                 11 44'Gender'
+     A                                      COLOR(WHT)
+     A                                 11 53'State'
+     A                                      COLOR(WHT)
+     A                                 11 71'Mobile'
+     A                                      COLOR(WHT)
+     A            CPOSITION     15A  B  7 64
+     A          R VCPROFILE
+     A*%%TS  SD  20240830  052350  NIKHIL      REL-V7R5M0  5770-WDS
+     A                                  1 21'Inventory Management and Electric -
+     A                                      Store'
+     A                                      COLOR(WHT)
+     A                                  2 34'Electric Head'
+     A                                      COLOR(WHT)
+     A                                  1 62'Date:'
+     A                                  2 62'Time:'
+     A                                  1 68DATE
+     A                                      EDTCDE(Y)
+     A                                      COLOR(WHT)
+     A                                  2 68TIME
+     A                                      COLOR(WHT)
+     A                                  1  2'User:'
+     A                                  3 12'________________View Customer Prof-
+     A                                      ile__________________'
+     A                                      COLOR(TRQ)
+     A                                 22  2'F12=Cancel'
+     A                                      COLOR(BLU)
+     A            CERROR        70A  O 24  2
+     A            USER           8A  O  1  8COLOR(WHT)
+     A                                  7  3'CustomerId:'
+     A                                  9  3'Name. . . :'
+     A                                 11  3'Mobile. . :'
+     A                                 13  3'Email. . .:'
+     A                                 15  3'State. . .:'
+     A                                 19  3'Address. .:'
+     A                                  9 43'Gender :'
+     A                                 11 43'Pincode:'
+     A                                 17  3'City. . . :'
+     A                                  7 43'Country:'
+     A            CPCSTPINCOR        O 11 52REFFLD(CSTDTLPFR/CSTPINCODE EHEADLI-
+     A                                      B/CSTDTLPF)
+     A            CPCSTGENDER        O  9 52REFFLD(CSTDTLPFR/CSTGENDER EHEADLIB-
+     A                                      /CSTDTLPF)
+     A            CPCSTCOUNTR        O  7 52REFFLD(CSTDTLPFR/CSTCOUNTRY EHEADLI-
+     A                                      B/CSTDTLPF)
+     A            CPCSTCITY R        O 17 15REFFLD(CSTDTLPFR/CSTCITY EHEADLIB/C-
+     A                                      STDTLPF)
+     A            CPCSTMOBILR        O 11 15REFFLD(CSTDTLPFR/CSTMOBILE EHEADLIB-
+     A                                      /CSTDTLPF)
+     A            CPCSTADDRER        O 19 15REFFLD(CSTDTLPFR/CSTADDRESS EHEADLI-
+     A                                      B/CSTDTLPF)
+     A            CPCSTSTATER        O 15 15REFFLD(CSTDTLPFR/CSTSTATE EHEADLIB/-
+     A                                      CSTDTLPF)
+     A            CPCSTGMAILR        O 13 15REFFLD(CSTDTLPFR/CSTGMAIL EHEADLIB/-
+     A                                      CSTDTLPF)
+     A            CPCSTID   R        O  7 15REFFLD(CSTDTLPFR/CSTID EHEADLIB/CST-
+     A                                      DTLPF)
+     A            CPCSTNAME R        O  9 15REFFLD(CSTDTLPFR/CSTNAME EHEADLIB/C-
+     A                                      STDTLPF)
+     A          R DLTMULTRCD                SFL
+     A*%%TS  SD  20240919  005518  NIKHIL      REL-V7R5M0  5770-WDS
+     A            DDVNDID   R        O 12  2REFFLD(VNDDTLPFR/VNDID EHEADLIB/VND-
+     A                                      DTLPF)
+     A            DDVNDNAME R        O 12 17REFFLD(VNDDTLPFR/VNDNAME EHEADLIB/V-
+     A                                      NDDTLPF)
+     A            DDVNDGENDRR        O 12 36REFFLD(VNDDTLPFR/VNDGENDER EHEADLIB-
+     A                                      /VNDDTLPF)
+     A            DDVNDSTATER        O 12 49REFFLD(VNDDTLPFR/VNDSTATE EHEADLIB/-
+     A                                      VNDDTLPF)
+     A            DDVNDMOBILR        O 13  1REFFLD(VNDDTLPFR/VNDMOBILE EHEADLIB-
+     A                                      /VNDDTLPF)
+     A          R DLTMLTCTL                 SFLCTL(DLTMULTRCD)
+     A*%%TS  SD  20240917  063107  NIKHIL      REL-V7R5M0  5770-WDS
+     A  58                                  OVERLAY
+     A  45                                  SFLDSP
+     A  46                                  SFLDSPCTL
+     A  44                                  SFLCLR
+     A  43                                  SFLEND(*MORE)
+     A                                      SFLSIZ(9999)
+     A                                      SFLPAG(0005)
+     A                                  1 21'Inventory Management and Electric -
+     A                                      Store'
+     A                                      COLOR(WHT)
+     A                                  2 34'Electric Head'
+     A                                      COLOR(WHT)
+     A                                  1  3'User:'
+     A            FLD001         8A  O  1  9
+     A                                  1 64'Date:'
+     A                                  2 64'Time:'
+     A                                  2  1DATE
+     A                                      EDTCDE(Y)
+     A                                  3  1TIME
+     A                                  3 19'___________Delete Multipal Record_-
+     A                                      __________'
+     A                                      COLOR(TRQ)
+     A                                  7  2'Press Enter to Delete'
+     A                                      COLOR(BLU)
+     A                                 10  2'cwndorId'
+     A                                 10 18'Name'
+     A                                 10 34'Gender'
+     A                                 10 50'State'
+     A                                 11  1'Mobile'
+     A          R DLTFOOTER
+     A*%%TS  SD  20240920  054741  NIKHIL      REL-V7R5M0  5770-WDS
+     A            DERROR        70A  O 24  2COLOR(WHT)
+     A                                 22  2'F12=Cancel'
+     A                                      COLOR(BLU)
+     A          R ORDMNGMNT                 SFL
+     A*%%TS  SD  20240905  001914  NIKHIL      REL-V7R5M0  5770-WDS
+     A  84                                  SFLNXTCHG
+     A            SOPTION        1Y 0B 12  3EDTCDE(4)
+     A  52                                  DSPATR(RI)
+     A  52                                  DSPATR(PC)
+     A            DODRID    R        O 12  8REFFLD(ORDMGPFR/ODRID EHEADLIB/ORDM-
+     A                                      GPF)
+     A            DODRCSTID R        O 12 21REFFLD(ORDMGPFR/ODRCSTID EHEADLIB/O-
+     A                                      RDMGPF)
+     A            DODRCSTNAMR        O 12 34REFFLD(ORDMGPFR/ODRCSTNAME EHEADLIB-
+     A                                      /ORDMGPF)
+     A            DODRTAMT  R        O 12 59REFFLD(ORDMGPFR/ODRTAMT EHEADLIB/OR-
+     A                                      DMGPF)
+     A            DODRDATE  R        O 12 71REFFLD(ORDMGPFR/ODRDATE EHEADLIB/OR-
+     A                                      DMGPF)
+     A                                      DATFMT(*ISO)
+     A                                      TEXT('ORDERED DATE')
+     A          R ORDSFLCTL                 SFLCTL(ORDMNGMNT)
+     A*%%TS  SD  20240917  063107  NIKHIL      REL-V7R5M0  5770-WDS
+     A                                      RTNCSRLOC(&RCD &FLD &POS)
+     A  58                                  OVERLAY
+     A  23                                  SFLDSP
+     A  24                                  SFLDSPCTL
+     A  22                                  SFLCLR
+     A  21                                  SFLEND(*MORE)
+     A                                      SFLSIZ(9999)
+     A                                      SFLPAG(0005)
+     A            FLD           10A  H
+     A            RCD           10A  H
+     A            POS            4S 0H
+     A                                  1 21'Inventory Management and Electric -
+     A                                      Store'
+     A                                      COLOR(WHT)
+     A                                  2 34'Electric Head'
+     A                                      COLOR(WHT)
+     A                                  1 66'Date:'
+     A                                      COLOR(WHT)
+     A                                  2 66'Time:'
+     A                                      COLOR(WHT)
+     A                                  1 72DATE
+     A                                      EDTCDE(Y)
+     A                                  2 72TIME
+     A                                  1  2'User:'
+     A                                      COLOR(WHT)
+     A                                  3 16'________________Order Management__-
+     A                                      ____________'
+     A                                      COLOR(TRQ)
+     A                                  7  2'Type Option,Press Enter.'
+     A                                      COLOR(BLU)
+     A                                  8  2'5=Display'
+     A                                      COLOR(BLU)
+     A                                 10  2'Opt'
+     A                                      COLOR(WHT)
+     A                                 10  8'OrderId'
+     A                                      COLOR(WHT)
+     A                                 10 20'CustomerId'
+     A                                      COLOR(WHT)
+     A                                 10 34'CustomerName'
+     A                                      COLOR(WHT)
+     A                                 10 56'TotalAmount'
+     A                                      COLOR(WHT)
+     A                                 10 71'OrderDate'
+     A                                      COLOR(WHT)
+     A                                  8 35'Position To(OrdId/CstId)'
+     A                                      COLOR(BLU)
+     A            OPOSITION     15A  B  8 61
+     A            USER           8A  O  1  8
+     A          R ODREDPD                   SFL
+     A*%%TS  SD  20240905  001914  NIKHIL      REL-V7R5M0  5770-WDS
+     A  85                                  SFLNXTCHG
+     A            SOPTION        1Y 0B 14  2EDTCDE(4)
+     A  53                                  DSPATR(RI)
+     A  53                                  DSPATR(PC)
+     A            DODPDID   R        O 14 12REFFLD(ORDMGPFR/ODPDID EHEADLIB/ORD-
+     A                                      MGPF)
+     A            DODRCSTID R        O 14 27REFFLD(ORDMGPFR/ODRCSTID EHEADLIB/O-
+     A                                      RDMGPF)
+     A            DODRPDNAMER        O 14 39REFFLD(ORDMGPFR/ODRPDNAME EHEADLIB/-
+     A                                      ORDMGPF)
+     A            DODRUTPZ  R        O 14 58REFFLD(ORDMGPFR/ODRUTPZ EHEADLIB/OR-
+     A                                      DMGPF)
+     A            DODRDATE  R        O 14 70REFFLD(ORDMGPFR/ODRDATE EHEADLIB/OR-
+     A                                      DMGPF)
+     A                                      DATFMT(*ISO)
+     A                                      TEXT('ORDERED DATE')
+     A          R ODRPSFLCTL                SFLCTL(ODREDPD)
+     A*%%TS  SD  20240917  063107  NIKHIL      REL-V7R5M0  5770-WDS
+     A                                      RTNCSRLOC(&RCD &FLD &POS)
+     A  58                                  OVERLAY
+     A  27                                  SFLDSP
+     A  28                                  SFLDSPCTL
+     A  26                                  SFLCLR
+     A  25                                  SFLEND(*MORE)
+     A                                      SFLSIZ(9999)
+     A                                      SFLPAG(0005)
+     A            FLD           10A  H
+     A            RCD           10A  H
+     A            POS            4S 0H
+     A                                  1 21'Inventory Management and Electric -
+     A                                      Store'
+     A                                      COLOR(WHT)
+     A                                  2 34'Electric Head'
+     A                                      COLOR(WHT)
+     A                                  1 65'Date:'
+     A                                      COLOR(WHT)
+     A                                  2 65'Time:'
+     A                                      COLOR(WHT)
+     A                                  1 71DATE
+     A                                      EDTCDE(Y)
+     A                                  2 71TIME
+     A                                  1  2'User:'
+     A                                      COLOR(WHT)
+     A            USER           8A  O  1  8
+     A                                  7  2'Type Option,Press Enter.'
+     A                                      COLOR(BLU)
+     A                                  8  2'5=Display'
+     A                                      COLOR(BLU)
+     A                                  3 17'________________Ordered Product___-
+     A                                      ___________'
+     A                                      COLOR(TRQ)
+     A                                  8 39'Position To(PdId)'
+     A                                      COLOR(BLU)
+     A            OPPOSITION    15A  B  8 58
+     A                                 10  2'OrderId:'
+     A                                      COLOR(WHT)
+     A                                 10 22'CustomerName:'
+     A                                      COLOR(WHT)
+     A                                 10 61'TotalAmount:'
+     A                                      COLOR(WHT)
+     A            ORPDTAMT       5S 0O 10 74
+     A            OPDID          6A  O 10 11
+     A            OPDCSTNAME    20A  O 10 36
+     A                                 12  2'Opt'
+     A                                      COLOR(WHT)
+     A                                 12 11'OrderedPdId'
+     A                                      COLOR(WHT)
+     A                                 12 27'CstId'
+     A                                      COLOR(WHT)
+     A                                 12 39'ProductName'
+     A                                      COLOR(WHT)
+     A                                 12 58'UntPr'
+     A                                      COLOR(WHT)
+     A                                 12 70'OrderDt'
+     A                                      COLOR(WHT)
+     A          R ORDERPROD
+     A*%%TS  SD  20240903  075518  NIKHIL      REL-V7R5M0  5770-WDS
+     A                                  1 21'Inventory Management and Electric -
+     A                                      Store'
+     A                                      COLOR(WHT)
+     A                                  2 34'Electric Head'
+     A                                      COLOR(WHT)
+     A                                  1  3'User:'
+     A                                      COLOR(WHT)
+     A            OUSER          8A  O  1  9
+     A                                  1 64'Date:'
+     A                                      COLOR(WHT)
+     A                                  2 64'Time:'
+     A                                      COLOR(WHT)
+     A                                  1 70DATE
+     A                                      EDTCDE(Y)
+     A                                  2 70TIME
+     A                                  3 16'________________Ordered Product De-
+     A                                      tail______________'
+     A                                      COLOR(TRQ)
+     A                                  7  2'OrderId. . .:'
+     A                                      COLOR(WHT)
+     A                                  9  2'ProductId. .:'
+     A                                      COLOR(WHT)
+     A                                 11  2'CustomerId. :'
+     A                                      COLOR(WHT)
+     A                                 13  2'ProductName.:'
+     A                                      COLOR(WHT)
+     A                                 15  2'CustomerName:'
+     A                                      COLOR(WHT)
+     A                                 17  2'Mobile. . . :'
+     A                                      COLOR(WHT)
+     A                                 19  2'Address. . .:'
+     A                                      COLOR(WHT)
+     A                                  7 46'Color. . . :'
+     A                                      COLOR(WHT)
+     A                                  9 46'Brand. . . :'
+     A                                      COLOR(WHT)
+     A                                 11 46'Quantity. .:'
+     A                                      COLOR(WHT)
+     A                                 13 46'UnitPrice. :'
+     A                                      COLOR(WHT)
+     A                                 15 46'OrderDate. :'
+     A                                      COLOR(WHT)
+     A                                 17 46'TotalAmount:'
+     A                                      COLOR(WHT)
+     A                                 22  2'F12=Cancel'
+     A                                      COLOR(BLU)
+     A            OERROR        70A  O 24  2COLOR(WHT)
+     A            SODRID    R        O  7 16REFFLD(ORDMGPFR/ODRID EHEADLIB/ORDM-
+     A                                      GPF)
+     A            SODPDID   R        O  9 16REFFLD(ORDMGPFR/ODPDID EHEADLIB/ORD-
+     A                                      MGPF)
+     A            SODRCSTID R        O 11 16REFFLD(ORDMGPFR/ODRCSTID EHEADLIB/O-
+     A                                      RDMGPF)
+     A            SODRPDNAMER        O 13 16REFFLD(ORDMGPFR/ODRPDNAME EHEADLIB/-
+     A                                      ORDMGPF)
+     A            SODRCSTNAMR        O 15 16REFFLD(ORDMGPFR/ODRCSTNAME EHEADLIB-
+     A                                      /ORDMGPF)
+     A            SODRMOBILER        O 17 16REFFLD(ORDMGPFR/ODRMOBILE EHEADLIB/-
+     A                                      ORDMGPF)
+     A            SODRADDRESR        O 19 16REFFLD(ORDMGPFR/ODRADDRESS EHEADLIB-
+     A                                      /ORDMGPF)
+     A            SODRPDCLR R        O  7 59REFFLD(ORDMGPFR/ODRPDCLR EHEADLIB/O-
+     A                                      RDMGPF)
+     A            SODRBRAND R        O  9 59REFFLD(ORDMGPFR/ODRBRAND EHEADLIB/O-
+     A                                      RDMGPF)
+     A            SODRQUNT  R        O 11 59REFFLD(ORDMGPFR/ODRQUNT EHEADLIB/OR-
+     A                                      DMGPF)
+     A            SODRUTPZ  R        O 13 59REFFLD(ORDMGPFR/ODRUTPZ EHEADLIB/OR-
+     A                                      DMGPF)
+     A            SODRDATE  R        O 15 59REFFLD(ORDMGPFR/ODRDATE EHEADLIB/OR-
+     A                                      DMGPF)
+     A                                      DATFMT(*ISO)
+     A            SODRTAMT  R        O 17 59REFFLD(ORDMGPFR/ODRTAMT EHEADLIB/OR-
+     A                                      DMGPF)
+     A          R REPORTMG                  SFL
+     A*%%TS  SD  20240911  093501  NIKHIL      REL-V7R5M0  5770-WDS
+     A  86                                  SFLNXTCHG
+     A            SOPTION        1Y 0B 13  3
+     A  54                                  DSPATR(RI)
+     A  54                                  DSPATR(PC)
+     A                                      EDTCDE(4)
+     A            RVNDID    R        O 13 12REFFLD(VNDDTLPFR/VNDID EHEADLIB/VND-
+     A                                      DTLPF)
+     A            RVNDNAME  R        O 13 27REFFLD(VNDDTLPFR/VNDNAME EHEADLIB/V-
+     A                                      NDDTLPF)
+     A            RPRODTYPE R        O 13 43REFFLD(VNDDTLPFR/PRODTYPE EHEADLIB/-
+     A                                      VNDDTLPF)
+     A            RDOR      R        O 13 67REFFLD(VNDDTLPFR/DOR EHEADLIB/VNDDT-
+     A                                      LPF)
+     A          R RPSFLCTL                  SFLCTL(REPORTMG)
+     A*%%TS  SD  20240917  063107  NIKHIL      REL-V7R5M0  5770-WDS
+     A                                      RTNCSRLOC(&RCD &FLD &POS)
+     A  58                                  OVERLAY
+     A  19                                  SFLDSP
+     A  20                                  SFLDSPCTL
+     A  18                                  SFLCLR
+     A  17                                  SFLEND(*MORE)
+     A                                      SFLSIZ(9999)
+     A                                      SFLPAG(0005)
+     A            FLD           10A  H
+     A            RCD           10A  H
+     A            POS            4S 0H
+     A                                  1 21'Inventory Management and Electric -
+     A                                      Store'
+     A                                      COLOR(WHT)
+     A                                  2 34'Electric Head'
+     A                                      COLOR(WHT)
+     A                                  1  2'User:'
+     A                                      COLOR(WHT)
+     A            USER           8A  O  1  8
+     A                                  1 65'Date:'
+     A                                  2 65'Time:'
+     A                                  1 71DATE
+     A                                      EDTCDE(Y)
+     A                                  2 71TIME
+     A                                  3 16'______________Report Management___-
+     A                                      __________'
+     A                                      COLOR(TRQ)
+     A                                  5  2'Date:'
+     A                                  5 19'To'
+     A                                  7  3'Type Option,Press Enter.'
+     A                                      COLOR(BLU)
+     A                                  8  3'5=Display'
+     A                                      COLOR(BLU)
+     A                                  8 37'Position To'
+     A                                      COLOR(BLU)
+     A            RMPOSITION    15A  B  8 50
+     A                                 11  2'Opt'
+     A                                      COLOR(WHT)
+     A                                 11 12'VendorId'
+     A                                      COLOR(WHT)
+     A                                 11 28'Name'
+     A                                      COLOR(WHT)
+     A                                 11 43'ProductName'
+     A                                      COLOR(WHT)
+     A                                 11 67'DOJ'
+     A                                      COLOR(WHT)
+     A            FROMDATE  R        B  5  8REFFLD(VNDDTLPFR/DOR EHEADLIB/VNDDT-
+     A                                      LPF)
+     A  13                                  DSPATR(RI)
+     A  13                                  DSPATR(PC)
+     A            TODATE    R        B  5 22REFFLD(VNDDTLPFR/DOR EHEADLIB/VNDDT-
+     A                                      LPF)
+     A  14                                  DSPATR(RI)
+     A  14                                  DSPATR(PC)
+     A                                  9 37'(VendorId)'
+     A                                      COLOR(BLU)
+     A          R SALEPRTF                  SFL
+     A*%%TS  SD  20240913  071201  NIKHIL      REL-V7R5M0  5770-WDS
+     A  88                                  SFLNXTCHG
+     A            SOPTION        1Y 0B 13  3EDTCDE(4)
+     A  56                                  DSPATR(RI)
+     A  56                                  DSPATR(PC)
+     A            SODRVNDID R        O 13 10REFFLD(ORDMGPFR/ODRVNDID EHEADLIB/O-
+     A                                      RDMGPF)
+     A            SODRPDNAMER        O 13 26REFFLD(ORDMGPFR/ODRPDNAME EHEADLIB/-
+     A                                      ORDMGPF)
+     A            SODRDATE  R        O 13 63REFFLD(ORDMGPFR/ODRDATE EHEADLIB/OR-
+     A                                      DMGPF)
+     A                                      DATFMT(*ISO)
+     A                                      TEXT('ORDERED DATE')
+     A            SODRDLDT  R        O 13 46REFFLD(ORDMGPFR/ODRDLDT EHEADLIB/OR-
+     A                                      DMGPF)
+     A                                      DATFMT(*ISO)
+     A                                      TEXT('DELIVERY DATE')
+     A          R PRTFSFLCTL                SFLCTL(SALEPRTF)
+     A*%%TS  SD  20240920  030713  NIKHIL      REL-V7R5M0  5770-WDS
+     A                                      SFLSIZ(9999)
+     A                                      SFLPAG(0005)
+     A                                      RTNCSRLOC(&RCD &FLD &POS)
+     A  58                                  OVERLAY
+     A  77                                  SFLDSP
+     A  78                                  SFLDSPCTL
+     A  76                                  SFLCLR
+     A  75                                  SFLEND(*MORE)
+     A            FLD           10A  H
+     A            RCD           10A  H
+     A            POS            4S 0H
+     A                                  1  3'User:'
+     A                                      COLOR(WHT)
+     A                                  1 21'Inventory Management and Electric -
+     A                                      Store'
+     A                                      COLOR(WHT)
+     A                                  2 34'Electric Heads'
+     A                                      COLOR(WHT)
+     A                                  1 64'Date:'
+     A                                      COLOR(WHT)
+     A                                  2 64'Time:'
+     A                                      COLOR(WHT)
+     A                                  3 15'__________________Inquiry On Sale_-
+     A                                      _______________'
+     A                                      COLOR(TRQ)
+     A                                  8  2'Type Option,Press Enter.'
+     A                                      COLOR(BLU)
+     A                                  9  2'5=Generate Report'
+     A                                      COLOR(BLU)
+     A                                  8 36'Position To By'
+     A                                      COLOR(BLU)
+     A                                  9 37'(VendorId)'
+     A                                      COLOR(BLU)
+     A            SLPOSITION    15A  B  8 52
+     A                                 11  2'Opt'
+     A                                      COLOR(WHT)
+     A                                 11 10'Vendor'
+     A                                      COLOR(WHT)
+     A                                 11 26'Product'
+     A                                      COLOR(WHT)
+     A                                 11 63'Order'
+     A                                      COLOR(WHT)
+     A                                 11 46'Delivery'
+     A                                      COLOR(WHT)
+     A                                  6  3'Date:'
+     A                                  6 20'To'
+     A            SLFROMDATER        B  6  9REFFLD(ORDMGPFR/ODRDATE EHEADLIB/OR-
+     A                                      DMGPF)
+     A                                      DATFMT(*ISO)
+     A                                      TEXT('ORDERED DATE')
+     A  11                                  DSPATR(RI)
+     A  11                                  DSPATR(PC)
+     A            SLTODATE  R        B  6 23REFFLD(VNDDTLPFR/DOB EHEADLIB/VNDDT-
+     A                                      LPF)
+     A  16                                  DSPATR(RI)
+     A  16                                  DSPATR(PC)
+     A            FLD001         8A  O  1  9
+     A                                  1 70DATE
+     A                                      EDTCDE(Y)
+     A                                  2 70TIME
+     A                                 12 63'Date'
+     A                                      COLOR(WHT)
+     A                                 12 46'Date'
+     A                                      COLOR(WHT)
+     A                                 12 26'Name'
+     A                                      COLOR(WHT)
+     A                                 12 10'Id'
+     A                                      COLOR(WHT)
+     A          R COMPLAINSF                SFL
+     A*%%TS  SD  20240913  003444  NIKHIL      REL-V7R5M0  5770-WDS
+     A  87                                  SFLNXTCHG
+     A            SOPTION        1Y 0B 13  2EDTCDE(4)
+     A  55                                  DSPATR(RI)
+     A  55                                  DSPATR(PC)
+     A            DCMPID    R        O 13  7REFFLD(CMPPFR/CMPID EHEADLIB/CMPPF)
+     A            DCMPCSTNAMR        O 13 19REFFLD(CMPPFR/CMPCSTNAME EHEADLIB/C-
+     A                                      MPPF)
+     A            DCMPDOS   R        O 13 56REFFLD(CMPPFR/CMPDOS EHEADLIB/CMPPF)
+     A                                      DATFMT(*ISO)
+     A                                      TEXT('COMP DATEOFSUBMIT')
+     A            DCOMPTYPE R        O 13 37REFFLD(CMPPFR/COMPTYPE EHEADLIB/CMP-
+     A                                      PF)
+     A            DCMPSTATUSR        O 13 68REFFLD(CMPPFR/CMPSTATUS EHEADLIB/CM-
+     A                                      PPF)
+     A          R COMPSFLCTL                SFLCTL(COMPLAINSF)
+     A*%%TS  SD  20240920  030713  NIKHIL      REL-V7R5M0  5770-WDS
+     A                                      SFLSIZ(9999)
+     A                                      SFLPAG(0005)
+     A                                      RTNCSRLOC(&RCD &FLD &POS)
+     A  59                                  OVERLAY
+     A  93                                  SFLDSP
+     A  94                                  SFLDSPCTL
+     A  92                                  SFLCLR
+     A  91                                  SFLEND(*MORE)
+     A            FLD           10A  H
+     A            RCD           10A  H
+     A            POS            4S 0H
+     A                                  1  2'User:'
+     A                                      COLOR(WHT)
+     A                                  1 21'Inventory Management and Electric -
+     A                                      Store'
+     A                                      COLOR(WHT)
+     A                                  2 34'Electric Heads'
+     A                                      COLOR(WHT)
+     A                                  1 66'Date:'
+     A                                      COLOR(WHT)
+     A                                  2 66'Time:'
+     A                                      COLOR(WHT)
+     A                                  1 72DATE
+     A                                      EDTCDE(Y)
+     A                                  2 72TIME
+     A            USERNAME       8A  O  1  8
+     A                                  3 15'________________Complaint Informat-
+     A                                      ion_______________'
+     A                                      COLOR(TRQ)
+     A                                  7  2'Type Option,Press Enter.'
+     A                                      COLOR(BLU)
+     A                                  8  2'5=Display'
+     A                                      COLOR(BLU)
+     A                                  7 38'Position To By'
+     A                                      COLOR(BLU)
+     A                                  8 38'(ComplaintId/CustomerName/Status)'
+     A                                      COLOR(BLU)
+     A            CPOSITION     15A  B  7 54
+     A                                 11  2'Opt'
+     A                                      COLOR(WHT)
+     A                                 11  7'Complaint'
+     A                                      COLOR(WHT)
+     A                                 11 20'Customer'
+     A                                      COLOR(WHT)
+     A                                 11 37'Complaint'
+     A                                      COLOR(WHT)
+     A                                 11 56'Complaint'
+     A                                      COLOR(WHT)
+     A                                 11 69'Status'
+     A                                      COLOR(WHT)
+     A                                 12 58'Date'
+     A                                      COLOR(WHT)
+     A                                 12  9'Id'
+     A                                      COLOR(WHT)
+     A                                 12 20'Name'
+     A                                      COLOR(WHT)
+     A                                 12 37'Type'
+     A                                      COLOR(WHT)
+     A          R COMPDETAIL
+     A*%%TS  SD  20240920  030713  NIKHIL      REL-V7R5M0  5770-WDS
+     A                                  1  2'User:'
+     A                                      COLOR(WHT)
+     A                                  1 21'Inventory Management and Electric -
+     A                                      Store'
+     A                                      COLOR(WHT)
+     A                                  2 34'Electric Heads'
+     A                                      COLOR(WHT)
+     A                                  1 64'Date:'
+     A                                      COLOR(WHT)
+     A                                  2 64'Time:'
+     A                                      COLOR(WHT)
+     A                                  1 70DATE
+     A                                      EDTCDE(Y)
+     A                                  2 70TIME
+     A            FLD001         8A  O  1  8
+     A                                  3 14'_________________View Complaint De-
+     A                                      tails______________'
+     A                                      COLOR(TRQ)
+     A                                  7  2'Complaint Id . :'
+     A                                      COLOR(WHT)
+     A                                  9  2'Customer Id . .:'
+     A                                      COLOR(WHT)
+     A                                 11  2'Customer Name .:'
+     A                                      COLOR(WHT)
+     A                                 13  2'Email. . . . . :'
+     A                                      COLOR(WHT)
+     A                                 15  2'DateOfSubmitted:'
+     A                                      COLOR(WHT)
+     A                                 17  2'Complaint Type :'
+     A                                      COLOR(WHT)
+     A                                 19  2'Description. . :'
+     A                                      COLOR(WHT)
+     A                                  7 42'Resolution Date:'
+     A                                      COLOR(WHT)
+     A                                 21  2'Status. . . . .:'
+     A                                      COLOR(WHT)
+     A            DCMPID    R        O  7 19REFFLD(CMPPFR/CMPID EHEADLIB/CMPPF)
+     A            DCMPCSTID R        O  9 19REFFLD(CMPPFR/CMPCSTID EHEADLIB/CMP-
+     A                                      PF)
+     A            DMPCSTNAMER        O 11 19REFFLD(CMPPFR/CMPCSTNAME EHEADLIB/C-
+     A                                      MPPF)
+     A            DCMPEMAIL R        O 13 19REFFLD(CMPPFR/CMPEMAIL EHEADLIB/CMP-
+     A                                      PF)
+     A            DCMPDOS   R        O 15 19REFFLD(CMPPFR/CMPDOS EHEADLIB/CMPPF)
+     A                                      DATFMT(*ISO)
+     A                                      TEXT('COMP DATEOFSUBMIT')
+     A            DCOMPTYPE R        O 17 19REFFLD(CMPPFR/COMPTYPE EHEADLIB/CMP-
+     A                                      PF)
+     A            DCMPDESP  R        O 19 19REFFLD(CMPPFR/CMPDESP EHEADLIB/CMPP-
+     A                                      F)
+     A            DCMPSTATUSR        O 21 19REFFLD(CMPPFR/CMPSTATUS EHEADLIB/CM-
+     A                                      PPF)
+     A            DCMPRSDATER        O  7 59REFFLD(CMPPFR/CMPRSDATE EHEADLIB/CM-
+     A                                      PPF)
+     A                                      DATFMT(*ISO)
+     A                                      TEXT('ORDER ADDRESS')
+     A                                 23  2'F12=Cancel'
+     A                                      COLOR(BLU)
+     A          R FDBCKDTL                  SFL
+     A*%%TS  SD  20240920  030713  NIKHIL      REL-V7R5M0  5770-WDS
+     A  89                                  SFLNXTCHG
+     A            SOPTION        1Y 0B 13  3EDTCDE(4)
+     A  57                                  DSPATR(RI)
+     A  57                                  DSPATR(PC)
+     A            DFDBACKID R        O 13 10REFFLD(FDBACKPFR/FDBACKID EHEADLIB/-
+     A                                      FDBACKPF)
+     A            DFDCSTNAMER        O 13 23REFFLD(FDBACKPFR/FDCSTNAME EHEADLIB-
+     A                                      /FDBACKPF)
+     A            DFDTYPE   R        O 13 40REFFLD(FDBACKPFR/FDTYPE EHEADLIB/FD-
+     A                                      BACKPF)
+     A            DFDDOS    R        O 13 57REFFLD(FDBACKPFR/FDDOS EHEADLIB/FDB-
+     A                                      ACKPF)
+     A                                      DATFMT(*ISO)
+     A                                      TEXT('FEEDBACK DOD')
+     A            DFDRATING R        O 13 70REFFLD(FDBACKPFR/FDRATING EHEADLIB/-
+     A                                      FDBACKPF)
+     A          R FDBKSFLCTL                SFLCTL(FDBCKDTL)
+     A*%%TS  SD  20240920  030713  NIKHIL      REL-V7R5M0  5770-WDS
+     A                                      SFLSIZ(9999)
+     A                                      SFLPAG(0005)
+     A                                      RTNCSRLOC(&RCD &FLD &POS)
+     A  58                                  OVERLAY
+     A  97                                  SFLDSP
+     A  98                                  SFLDSPCTL
+     A  96                                  SFLCLR
+     A  95                                  SFLEND(*MORE)
+     A            FLD           10A  H
+     A            RCD           10A  H
+     A            POS            4S 0H
+     A                                  1  2'User:'
+     A                                      COLOR(WHT)
+     A                                  1 21'Inventory Management and Electric -
+     A                                      Store'
+     A                                      COLOR(WHT)
+     A                                  2 33'Electric Heades'
+     A                                      COLOR(WHT)
+     A            USERNAME       8A  O  1  8
+     A                                  1 63'Date:'
+     A                                      COLOR(WHT)
+     A                                  2 63'Time:'
+     A                                      COLOR(WHT)
+     A                                  1 69DATE
+     A                                      EDTCDE(Y)
+     A                                  2 69TIME
+     A                                  7  3'Type Option,Press Enter.'
+     A                                      COLOR(BLU)
+     A                                  8  3'5=Display'
+     A                                      COLOR(BLU)
+     A                                  7 40'Position To By'
+     A                                      COLOR(BLU)
+     A            FDPOSITION    15A  B  7 56
+     A                                  8 40'(FeedbackId/CustomerName)'
+     A                                      COLOR(BLU)
+     A                                 11  3'Opt'
+     A                                      COLOR(WHT)
+     A                                 11 10'FeedBack'
+     A                                      COLOR(WHT)
+     A                                 11 23'Customer'
+     A                                      COLOR(WHT)
+     A                                 11 40'FeedBack'
+     A                                      COLOR(WHT)
+     A                                 11 57'Submit'
+     A                                      COLOR(WHT)
+     A                                 11 69'Rating'
+     A                                      COLOR(WHT)
+     A                                 12 12'Id'
+     A                                      COLOR(WHT)
+     A                                 12 23'Name'
+     A                                      COLOR(WHT)
+     A                                 12 40'Type'
+     A                                      COLOR(WHT)
+     A                                 12 57'Date'
+     A                                      COLOR(WHT)
+     A          R VIEWFDBK
+     A*%%TS  SD  20240920  030713  NIKHIL      REL-V7R5M0  5770-WDS
+     A                                  1  2'User:'
+     A                                      COLOR(WHT)
+     A                                  1 21'Inventory Management and Electric -
+     A                                      Store'
+     A                                      COLOR(WHT)
+     A                                  2 34'Electric Heads'
+     A                                      COLOR(WHT)
+     A                                  1 64'Date:'
+     A                                      COLOR(WHT)
+     A                                  2 64'Time:'
+     A                                      COLOR(WHT)
+     A                                  1 70DATE
+     A                                      EDTCDE(Y)
+     A                                  2 70TIME
+     A            USERNAME       8A  O  1  8
+     A                                  3 14'_________________View FeedBack Det-
+     A                                      ails_______________'
+     A                                      COLOR(TRQ)
+     A                                  7  2'FeedBack Id. . :'
+     A                                      COLOR(WHT)
+     A                                  9  2'Customer Id . .:'
+     A                                      COLOR(WHT)
+     A                                 11  2'Customer Name .:'
+     A                                      COLOR(WHT)
+     A                                 19  2'Email. . . . . :'
+     A                                      COLOR(WHT)
+     A                                  7 45'Date Of Submission:'
+     A                                      COLOR(WHT)
+     A                                 11 45'FeedBack Type. . .:'
+     A                                      COLOR(WHT)
+     A                                 21  2'Description. . :'
+     A                                      COLOR(WHT)
+     A                                 23  2'F12=Cancel'
+     A                                      COLOR(BLU)
+     A                                  9 45'Rating . . . . . .:'
+     A                                      COLOR(WHT)
+     A                                 13  2'Product Id . . :'
+     A                                      COLOR(WHT)
+     A                                 15  2'Product Name . :'
+     A                                      COLOR(WHT)
+     A                                 17  2'ProductCategory:'
+     A                                      COLOR(WHT)
+     A            VFDBACKID R        O  7 19REFFLD(FDBACKPFR/FDBACKID EHEADLIB/-
+     A                                      FDBACKPF)
+     A            VFDCSTID  R        O  9 19REFFLD(FDBACKPFR/FDCSTID EHEADLIB/F-
+     A                                      DBACKPF)
+     A            VFDCSTNAMER        O 11 19REFFLD(FDBACKPFR/FDCSTNAME EHEADLIB-
+     A                                      /FDBACKPF)
+     A            VFDPDID   R        O 13 19REFFLD(FDBACKPFR/FDPDID EHEADLIB/FD-
+     A                                      BACKPF)
+     A            VFDPDNAME R        O 15 19REFFLD(FDBACKPFR/FDPDNAME EHEADLIB/-
+     A                                      FDBACKPF)
+     A            VFDPDCTGORR        O 17 19REFFLD(FDBACKPFR/FDPDCTGORY EHEADLI-
+     A                                      B/FDBACKPF)
+     A            VFDEMAIL  R        O 19 19REFFLD(FDBACKPFR/FDEMAIL EHEADLIB/F-
+     A                                      DBACKPF)
+     A            VFDDESP   R        O 21 19REFFLD(FDBACKPFR/FDDESP EHEADLIB/FD-
+     A                                      BACKPF)
+     A            VFDDOS    R        O  7 65REFFLD(FDBACKPFR/FDDOS EHEADLIB/FDB-
+     A                                      ACKPF)
+     A                                      DATFMT(*ISO)
+     A                                      TEXT('FEEDBACK DOD')
+     A            VFDRATING R        O  9 65REFFLD(FDBACKPFR/FDRATING EHEADLIB/-
+     A                                      FDBACKPF)
+     A            VFDTYPE   R        O 11 65REFFLD(FDBACKPFR/FDTYPE EHEADLIB/FD-
+     A                                      BACKPF)
+     A                                  9 68'(OutOf 10)'
+     A                                      COLOR(BLU)

@@ -1,0 +1,5 @@
+  StrPgmExp Pgmlvl(*Current)
+    Export symbol(CHGPASSWD)
+    Export symbol(SQUEPROMPT)
+    Export symbol(STATPROMPT)
+  EndPgmExp

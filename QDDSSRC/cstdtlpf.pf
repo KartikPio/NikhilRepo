@@ -1,0 +1,23 @@
+                                            UNIQUE
+                R CSTDTLPFR
+                  CSTID          6A         COLHDG('CUSTOMER ID')
+                                            TEXT('CUSTOMER ID')
+                  CSTNAME       20A         COLHDG('CUSTOMER NAME')
+                                            TEXT('CUSTOMER NAME')
+                  CSTSTATE      15A         COLHDG('CUSTOMER STATE')
+                                            TEXT('CUSTOMER STATE')
+                  CSTGMAIL      30A         COLHDG('CUSTOMER GMAIL')
+                                            TEXT('CUSTOMER GMAIL')
+                  CSTADDRESS    50A         COLHDG('CUSTOMER ADDRESS')
+                                            TEXT('CUSTOMER ADDRESS')
+                  CSTGENDER      1A         COLHDG('CUSTOMER GENDER')
+                                            TEXT('CUSTOMER GENDER')
+                  CSTCITY       18A         COLHDG('CUSTOMER CITY')
+                                            TEXT('CUSTOMER CITY')
+                  CSTMOBILE     10S 0       COLHDG('CST MOBNO')
+                                            TEXT('CUSTOMER MOBNO')
+                  CSTCOUNTRY     5A         COLHDG('CUSTOMER COUNTRY')
+                                            TEXT('CUSTOMER COUNTRY')
+                  CSTPINCODE     6S 0       COLHDG('CUSTOMER PINCODE')
+                                            TEXT('CUSTOMER PINCODE')
+                K CSTID
